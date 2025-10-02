@@ -1,0 +1,12 @@
+services:
+  score-scraper:
+    build: .
+    container_name: score-scraper
+    volumes:
+      - ./out:/app/out
+    environment:
+      # Testing: every full minute
+      CRON_SCHEDULE: "* * * * *"
+      # Production: uncomment the next line for every 15 minutes
+      # CRON_SCHEDULE: "*/15 * * * *"
+    restart: unless-stopped
