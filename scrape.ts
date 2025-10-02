@@ -79,9 +79,9 @@ async function main() {
   const html = await fetchHtml(pageUrl);
   const $ = cheerio.load(html);
 
-  const items = $("ul#sortbylist li[data-cnt]");
+  const items = $("ul#textlist li[data-cnt]");
   if (items.length === 0) {
-    log("No items found with selector 'ul#sortbylist li[data-cnt]'. Trying fallback 'li[data-cnt]' ...");
+    log("No items found with selector 'ul#textlist li[data-cnt]'. Trying fallback 'li[data-cnt]' ...");
   }
   const itemsFallback = items.length ? items : $("li[data-cnt]");
 
